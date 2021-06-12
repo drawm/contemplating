@@ -1,30 +1,32 @@
 
+```txt
+       ▄▄▄▄▄▄▄▄           
+     ▄█▀▀░░░░░░▀▀█▄       "con"
+   ▄█▀▄██▄░░░░░░░░▀█▄      > French word for "stupid"
+  █▀░▀░░▄▀░░░░▄▀▀▀▀░▀█     > Against a proposition, opinion, etc
+ █▀░░░░███░░░░▄█▄░░░░▀█   
+ █░░░░░░▀░░░░░▀█▀░░░░░█   
+ █░░░░░░░░░░░░░░░░░░░░█   "templating"
+ █░░██▄░░▀▀▀▀▄▄░░░░░░░█    > Tool to help you write and maintain text documents
+ ▀█░█░█░░░▄▄▄▄▄░░░░░░█▀   
+  ▀█▀░▀▀▀▀░▄▄▄▀░░░░▄█▀    
+   █░░░░░░▀█░░░░░▄█▀      "contemplate"
+   █▄░░░░░▀█▄▄▄█▀▀         > To consider with continued attention; reflect upon; ponder; study; meditate on.
+    ▀▀▀▀▀▀▀               
+                          
+```
 
 [ConTemplating](#)
 ===
-> The best dumb templating library out there.
-
-
-***con***
-> French word for "stupid"
-
-***templating***
-> Something you learn because it seems easier than what you should actually learn
-
-
----
-## What is this?
-This is a simple library to help you use template string as a templating language. It simply gives you features you might find in other templating languages you can't already get with vanilla js.
-
+Simple library to help you use template string as a templating language. It simply gives you feature you might find in other templating languages you can't already get with vanilla js.
 
 ## Usage & examples
-If you want a "real-ish" example, checkout [README.ts where I generate this readme using `ConTemplating`](README.ts)
-
+If you want a "real-ish" example, checkout [README.ts](README.ts). It's the code to generate this [readme](README.md).
 
 ## Quick getting started
-Use `template` template string method to automatically
-    * convert nullish values to empty strings.
-    * print arrays without separators
+Use [`template()`](src/mod.ts) method as a tagged template to automatically
+* Convert nullish values to empty strings.
+* Print arrays without separators
 
 ```typescript
 const goodDogNames = [
@@ -44,7 +46,6 @@ ${goodDogNames.map(name =>
 `
 ```
 
-will yield
 ```html
 <h2>List of good dog name</h2>
 <ul>
@@ -54,33 +55,84 @@ will yield
 </ul>
 ```
 
-## Other
-Typically, templating languages provide a lot more features, but we believe Javascripts already give you most of them out of the box
+## Why
+Templating libraries have never been bigger, not only they are often fully featured language, they also have framework built on top of them (often called static site generator).
 
-| Feature | Js Equivalent |
+Howere they rely on another language and frameworks for data & execution.
+
+It might be JS fatigue speaking, but this seems wastevul.
+I believe we spend too much time to learn, maintain and workaround what seems like yet another language & framework.
+
+**What if we didn't need a second language for templating?**
+
+**What if we could easily do everything a templating language provides using nothing but the host language & API?**
+
+This project will attempt to answer this question.
+
+> PS: I kind of already answered the question by using a (less elegant) prototype of `ConTemplating` to make my lost blog.
+>
+> Yes it works! But I want to make it official this time and not keep it to myself.
+
+## Dogfooding
+The [README.md](README.md) you are looking at was also made using `ConTemplating`, although it's not a complex example, it proves the concept is valid at small scale.
+
+The next step is to re-make my lost blog. This will ensure `ConTemplating` is viable for medium size projects.
+
+## How
+> TLDR: Its all about functions and template strings
+
+Javscript now has [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which can be used to insert variable and expressions in string literal without using concatenation or formatting.
+Template strings can also be improved upon with [tagged templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) which are simply methods that can parse the strings and variables.
+
+These two additions to the language enable us to do what templating languages are meant to do; **organize strings and data into text documents**.
+
+Everything else templating languages provide are already in the language, but used to be difficult to mix with string in a clean and efficient fashion.
+
+| Feature | JS Equivalent |
 | ------- | ------------- |
-| Composition (modules, block, extends, etc) | Import & Function |
-| Loop | array [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce), [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), etc |
-| Variables | Variables (duh) |
-| sanitization & autoescape | TODO: ok ill get to this one |
+| Composition (modules, block, extends, yields, etc) | [Import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) & [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functionsa) |
+| Loop | Array.prototype methods like [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce), [filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter), etc |
+| Variables | [Template strings embedded expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#expression_interpolation) |
+| sanitization & autoescape | TODO: Ok ill get to this one, although, its not needed untill you use outside data |
 
-ConTemplating also avoid a lot of the complexities of other templating languages.
+#### Things we get for free
+* Parsing / Interpreting template
+* Rendering to string
+* Cashing (some sort of)
+* No setup or config needed
+* Nothing more to learn, we simply use what is in the language in a new way.
+* Run in the browser natively (at least naively through .innerhtml)
+* No extra IDE support needed
 
-| Others | ConTemplating |
-| ------ | -------------- |
-| Slow parsing & rendering | Can't have slow parsing, if you don't have a language to parse |
-| New language to learn | Its plain JS. If you are looking for a JS templating language, you already know JS |
-| Installation & setup | No setup here, its just a template string method |
-| Huge documention website you can read for weeks | No doc needed, the codebase itself takes 2 min to fully understand (and re-implement) |
-| Require its own linting rules | Its plain javascript, just use your current linter |
-| IDE support | Its plain javascript, just use your current IDE |
+## Contribute
+
+Contributions are welcome but maybe unecessary?
+I welcome comments & PR, but remember that in terms of implementation, less is more.
+
+### Requirements
+* [Deno](https://deno.land/)
+* [Git](https://git-scm.com/)
+
+### Supported platforms
+* [Deno](https://deno.land/)
+
+Technically also works on [Nodejs](https://nodejs.org/en/) and any browser if you transpile the code from [Typescript](https://www.typescriptlang.org/) down to Javascript
+A transpiled version *might* follow once I start publishing versions
+
+### Tests
+Simply run the [`test`](test) script at the root of the project
+Tests are located under the [`tests`](tests) folder and follow [Deno's testing api](https://deno.land/manual@main/testing)
+
+### Build this readme
+Simply run the [`build`](build) script
+
+### Sources
+Sources are located in the [`src`](src) folder
 
 ---
 
 ## Special thanks to:
-* Manan & Papa
-* My doggo
+* My partner & my doggo
+* Maman & Papa
 * People of Slacker News
 * My chronic insomnia
-
-

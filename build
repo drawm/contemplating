@@ -1,3 +1,4 @@
 #!/bin/bash
 
-deno run README.ts > README.md
+# Dogfood con-templating by building README.md
+deno run --allow-read --allow-write README.ts

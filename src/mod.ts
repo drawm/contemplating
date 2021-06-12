@@ -16,7 +16,7 @@ export function template(strings: TemplateStringsArray, ...values: Printables[])
 
         if (Array.isArray(values[i])) {
             acc += (values[i] as Printables[])
-                .map(j => j ?? '')
+                .map(value => value ?? '')
                 .join('');
         } else {
             acc += (values[i] ?? '');
