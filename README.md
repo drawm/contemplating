@@ -1,24 +1,26 @@
 
 ```txt
-       ▄▄▄▄▄▄▄▄           
+       ▄▄▄▄▄▄▄▄
      ▄█▀▀░░░░░░▀▀█▄       "con"
    ▄█▀▄██▄░░░░░░░░▀█▄      > French word for "stupid"
   █▀░▀░░▄▀░░░░▄▀▀▀▀░▀█     > Against a proposition, opinion, etc
- █▀░░░░███░░░░▄█▄░░░░▀█   
- █░░░░░░▀░░░░░▀█▀░░░░░█   
+ █▀░░░░███░░░░▄█▄░░░░▀█
+ █░░░░░░▀░░░░░▀█▀░░░░░█
  █░░░░░░░░░░░░░░░░░░░░█   "templating"
  █░░██▄░░▀▀▀▀▄▄░░░░░░░█    > Tool to help you write and maintain text documents
- ▀█░█░█░░░▄▄▄▄▄░░░░░░█▀   
-  ▀█▀░▀▀▀▀░▄▄▄▀░░░░▄█▀    
+ ▀█░█░█░░░▄▄▄▄▄░░░░░░█▀
+  ▀█▀░▀▀▀▀░▄▄▄▀░░░░▄█▀
    █░░░░░░▀█░░░░░▄█▀      "contemplate"
    █▄░░░░░▀█▄▄▄█▀▀         > To consider with continued attention; reflect upon; ponder; study; meditate on.
-    ▀▀▀▀▀▀▀               
-                          
+    ▀▀▀▀▀▀▀
+
 ```
 
 [ConTemplating](#)
 ===
 Simple library to help you use template string as a templating language. It simply gives you feature you might find in other templating languages you can't already get with vanilla js.
+
+[Deno](https://deno.land/x/contemplating)
 
 ## Usage & examples
 If you want a "real-ish" example, checkout [README.ts](README.ts). It's the code to generate this [readme](README.md).
