@@ -1,5 +1,6 @@
 type Printable = string | number | undefined | null;
 type Printables = Printable | Printables[];
+type TemplateStringsArguments = [strings: TemplateStringsArray, ...values: Printables[]];
 
 /**
  * TODO: What single character can I use instead?
@@ -9,7 +10,13 @@ type Printables = Printable | Printables[];
  *   - undefined & null is converted to ''
  *   - Arrays are joined without seperator
  */
-export function template(strings: TemplateStringsArray, ...values: Printables[]): string {
+export function template(strings: TemplateStringsArray | TemplateStringsArguments, ...values: Printables[]): string {
+   // Normalize arguments in case they come from a "regular" function call
+   if(Array.isArray(strings[0])){
+     // @ts-ignore
+     [strings, ...values] = strings;
+   }
+
     let acc = '';
     for (let i = 0; i < strings.length; i++) {
         acc += strings[i];
