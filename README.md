@@ -1,26 +1,24 @@
 
 ```txt
-       ▄▄▄▄▄▄▄▄
+       ▄▄▄▄▄▄▄▄           
      ▄█▀▀░░░░░░▀▀█▄       "con"
    ▄█▀▄██▄░░░░░░░░▀█▄      > French word for "stupid"
   █▀░▀░░▄▀░░░░▄▀▀▀▀░▀█     > Against a proposition, opinion, etc
- █▀░░░░███░░░░▄█▄░░░░▀█
- █░░░░░░▀░░░░░▀█▀░░░░░█
+ █▀░░░░███░░░░▄█▄░░░░▀█   
+ █░░░░░░▀░░░░░▀█▀░░░░░█   
  █░░░░░░░░░░░░░░░░░░░░█   "templating"
  █░░██▄░░▀▀▀▀▄▄░░░░░░░█    > Tool to help you write and maintain text documents
- ▀█░█░█░░░▄▄▄▄▄░░░░░░█▀
-  ▀█▀░▀▀▀▀░▄▄▄▀░░░░▄█▀
+ ▀█░█░█░░░▄▄▄▄▄░░░░░░█▀   
+  ▀█▀░▀▀▀▀░▄▄▄▀░░░░▄█▀    
    █░░░░░░▀█░░░░░▄█▀      "contemplate"
    █▄░░░░░▀█▄▄▄█▀▀         > To consider with continued attention; reflect upon; ponder; study; meditate on.
-    ▀▀▀▀▀▀▀
-
+    ▀▀▀▀▀▀▀               
+                          
 ```
 
 [ConTemplating](#)
 ===
 Simple library to help you use template string as a templating language. It simply gives you feature you might find in other templating languages you can't already get with vanilla js.
-
-[Deno](https://deno.land/x/contemplating)
 
 ## Usage & examples
 If you want a "real-ish" example, checkout [README.ts](README.ts). It's the code to generate this [readme](README.md).
@@ -58,12 +56,12 @@ ${goodDogNames.map(name =>
 ```
 
 ## Why
-Templating libraries have never been bigger, not only they are often fully featured language, they also have framework built on top of them (often called static site generator).
+Templating libraries have never been bigger, not only they are often fully featured language, but they also have a framework built on top of them (aka static site generator).
 
-Howere they rely on another language and frameworks for data & execution.
+However, they rely on other languages and frameworks for data & execution.
 
-It might be JS fatigue speaking, but this seems wastevul.
-I believe we spend too much time to learn, maintain and workaround what seems like yet another language & framework.
+It might be JS fatigue speaking, but this seems wasteful.
+I believe we spend too much time learning, maintaining, and working around another layer of programming language & framework.
 
 **What if we didn't need a second language for templating?**
 
@@ -76,19 +74,19 @@ This project will attempt to answer this question.
 > Yes it works! But I want to make it official this time and not keep it to myself.
 
 ## Dogfooding
-The [README.md](README.md) you are looking at was also made using `ConTemplating`, although it's not a complex example, it proves the concept is valid at small scale.
+The [README.md](README.md) you are looking at was also made using `ConTemplating`, although it's not a complex example, it proves the concept is valid at a small scale.
 
-The next step is to re-make my lost blog. This will ensure `ConTemplating` is viable for medium size projects.
+I also made a blog with it, proving its usefulness on medium size projects.
 
 ## How
 > TLDR: Its all about functions and template strings
 
-Javscript now has [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which can be used to insert variable and expressions in string literal without using concatenation or formatting.
+Javascript now has [template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which can be used to insert variables and expressions in string literal without using concatenation or formatting.
 Template strings can also be improved upon with [tagged templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) which are simply methods that can parse the strings and variables.
 
 These two additions to the language enable us to do what templating languages are meant to do; **organize strings and data into text documents**.
 
-Everything else templating languages provide are already in the language, but used to be difficult to mix with string in a clean and efficient fashion.
+Everything else a templating language can provide is already in the language but was hard to use cleanly and efficiently.
 
 | Feature | JS Equivalent |
 | ------- | ------------- |
@@ -104,12 +102,12 @@ Everything else templating languages provide are already in the language, but us
 * No setup or config needed
 * Nothing more to learn, we simply use what is in the language in a new way.
 * Run in the browser natively (at least naively through .innerhtml)
-* No extra IDE support needed
+* No extra IDE support is needed
 
 ## Contribute
 
-Contributions are welcome but maybe unecessary?
-I welcome comments & PR, but remember that in terms of implementation, less is more.
+Contributions are welcome, but may be unnecessary?
+I welcome comments & PR but remember that in terms of implementation, less is more.
 
 ### Requirements
 * [Deno](https://deno.land/)
@@ -130,7 +128,6 @@ Simply run the [`build`](build) script
 
 ### Sources
 Sources are located in the [`src`](src) folder
-
 ---
 
 ## Special thanks to:
